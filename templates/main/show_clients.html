@@ -1,13 +1,14 @@
 {% extends "main/base.html" %}
-{% block title %}Products view{% endblock %}
+{% block title %}Clients view{% endblock %}
 
 {% block content %}
 	<ul>
-		{% for product in products %}
-			<li>NAME: {{product.name}}</li>
-            <li>ID: {{product.id}}</li>
-            <li>DESCRIPTION: {{product.description}}</li>
-            <li>ATTRIBUTE_4: {{product.attribute_4}}</li>
+		{% for client in clients %}
+			<li>ID: {{client.id}}</li>
+            <li>DOCUMENT: {{client.document}}</li>
+            <li>FIRST NAME: {{client.first_name}}</li>
+            <li>LAST NAME: {{client.last_name}}</li>
+            <li>EMAIL: {{client.email}}</li>
             <br>
 
 		{% endfor %}

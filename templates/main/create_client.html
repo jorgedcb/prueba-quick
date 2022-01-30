@@ -1,21 +1,22 @@
 {% extends 'main/base.html' %}
 {% block title %}
-Create New Product
+Create New Client
 {% endblock %}
  
 {% block content %}
-	<h3>Create a Product</h3>
+	<h3>Create a Client</h3>
 	<br>
-	<form method="post" action="/product/create/" class="form-group">
+	<form method="post" action="/client/create/" class="form-group">
 		{% csrf_token %}
 		<div class="input-group mb-3">
 	  		<div class="input-group-prepend">
 	  		<button name="save" type="submit" class="btn btn-success">Create</button>
 	  		</div>
 	  		<p>ID: {{form.id}}</p>
-			<p>NAME: {{form.name}}</p>
-			<p>DESCRIPTION: {{form.description}}</p>
-			<p>ATTRIBUTE_4: {{form.attribute_4}}</p>
+			<p>DOCUMENT: {{form.document}}</p>
+			<p>FIRST NAME: {{form.first_name}}</p>
+            <p>LAST NAME: {{form.last_name}}</p>
+			<p>EMAIL: {{form.email}}</p>
 		
 		</div>
 	</form>

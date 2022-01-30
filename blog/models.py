@@ -17,7 +17,7 @@ from django.utils import timezone
 class Client(models.Model):
 
     id = models.PositiveIntegerField(primary_key = TRUE)
-    document = models.CharField(max_length=50)
+    document = models.PositiveIntegerField()
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField(max_length=254)
