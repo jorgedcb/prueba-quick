@@ -24,7 +24,8 @@ from pages import views
 
 urlpatterns = [
     path('', views.home_view, name='home'), #path to home page
-    path('contact/', views.contact_view, name='contact'), #path to contact page
-    url(r'^admin/', admin.site.urls), #path to admin
+    path('product/<int:id>', views.product_view, name='product'), #path to product page
+    path('admin/', admin.site.urls),
+    path('create/product', views.create_product_view, name='create product'),
 
 ]
