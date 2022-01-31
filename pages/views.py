@@ -7,7 +7,7 @@ from os import name
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
 from blog.models import Client, Bill, Product, Bills_Product
-from .forms import CreateNewBill, CreateNewClient, CreateNewProduct
+from .forms import CreateNewBill, CreateNewBill_Product, CreateNewClient, CreateNewProduct
 
 # Create your views here.
 def home_view(request,*args,**kwargs): #home page view
@@ -71,8 +71,7 @@ def create_client_view(request,*args,**kwargs):
 
     return render(request, "main/create_client.html", {"form":form})
 
-    #Bill views
-
+#Bill views
 def all_bills_view(request,*args,**kwargs): #Contact page view
     bills = Bill.objects.all()
     return render(request, "main/show_bills.html", {"bills":bills})
@@ -90,12 +89,45 @@ def create_bill_view(request,*args,**kwargs):
             company_name  = form.cleaned_data["company_name"]
             nit  = form.cleaned_data["nit"]
             code = form.cleaned_data["code"]
+            client = Client.objects.get(id=client_id)
 
-            t = Bill(id=id, client_id=client_id, company_name=company_name, nit=nit, code=code)
+
+            t = Bill(id=id, client_id=client, company_name=company_name, nit=nit, code=code)
             t.save()
 
         return HttpResponseRedirect("/bill/all")
     else:
-        form = CreateNewClient()
+        form = CreateNewBill()
 
-    return render(request, "main/create_client.html", {"form":form})
+    return render(request, "main/create_bill.html", {"form":form})
+
+#bill_product
+def all_bills_products_view(request,*args,**kwargs): #Contact page view
+    bills_products = Bills_Product.objects.all()
+    return render(request, "main/show_billproduct.html", {"bills_products":bills_products})
+
+def bills_products_view(request,*args,**kwargs): #Contact page view
+    bill_product = Bills_Product.objects.get(id=kwargs['id'])
+    return render(request, "main/bill_product.html", {"bill_product":bill_product})
+
+def create_bill_product_view(request,*args,**kwargs):
+    if request.method == "POST":
+        form = CreateNewBill_Product(request.POST)
+        if form.is_valid():
+            id = form.cleaned_data["id"]
+            bill_id = form.cleaned_data["bill_id"]
+            product_id = form.cleaned_data["product_id"]
+
+            bill= Bill.objects.get(id=bill_id)
+            product = Product.objects.get(id=product_id)
+            t = Bills_Product(id=id, bill_id=bill, product_id=product)
+            t.save()
+
+        return HttpResponseRedirect("/billproduct/all")
+    else:
+        form = CreateNewBill_Product()
+
+    return render(request, "main/create_bill_product.html", {"form":form})
+
+
+

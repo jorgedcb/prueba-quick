@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+{% block title %}Bills-Products view{% endblock %}
+
+{% block content %}
+	<ul>
+		{% for bill_product in bills_products %}
+            <li>ID: {{bill_product.id}}</li>
+            <li>BILL ID: {{bill_product.bill_id}}</li>
+            <li>PRODUCT ID: {{bill_product.product_id}}</li>
+            <br>
+
+		{% endfor %}
+	</ul>
+{% endblock %}

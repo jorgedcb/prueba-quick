@@ -23,7 +23,7 @@ class Client(models.Model):
     email = models.EmailField(max_length=254)
     
     def __str__(self):
-        return "%s %s" % (self.first_name, self.last_name)
+        return "%s - %s %s" % (self.id,self.first_name, self.last_name)
 
 class Bill(models.Model):
     
@@ -33,7 +33,7 @@ class Bill(models.Model):
     nit = models.PositiveIntegerField()
     code = models.PositiveIntegerField()
     def __str__(self):
-        return "%s %s" % (self.id, self.company_name)
+        return "%s - %s" % (self.id, self.company_name)
 
 class Product(models.Model):
     
@@ -42,9 +42,8 @@ class Product(models.Model):
     description = models.TextField()
     attribute_4 = models.TextField()
     def __str__(self):
-        return self.name
-    def get_name(self):
-        return self.name
+        return "%s - %s" % (self.id, self.name)
+
 
 class Bills_Product(models.Model):
     
@@ -52,12 +51,8 @@ class Bills_Product(models.Model):
     bill_id = models.ForeignKey(Bill, on_delete=models.CASCADE)
     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
     
-    def get_product_bill(self):
-        p = Product.objects.get(id=self.product_id)
-        b = Bill.objects.get(id = self.bill_id)
-        return p,b
     def __str__(self):
-        return "prueba"
+        return "%s" % (self.id)
 
 
 

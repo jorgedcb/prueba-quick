@@ -34,6 +34,12 @@ urlpatterns = [
     path('bill/<int:id>', views.bills_view, name='bill'), 
     path('bill/all', views.all_bills_view, name='all bill'),
     path('bill/create/', views.create_bill_view, name='create bill'),
+    
+    #bills_products
+    path('billproduct/<int:id>', views.bills_products_view, name='bill_product'), 
+    path('billproduct/all', views.all_bills_products_view, name='all bill_product'),
+    path('billproduct/create/', views.create_bill_product_view, name='create bill_product'),
+
 
     #products
     path('product/<int:id>', views.product_view, name='product'), 

@@ -1,25 +1,20 @@
 {% extends 'main/base.html' %}
 {% block title %}
-Create New Bill
+Create New Bill-Product
 {% endblock %}
  
 {% block content %}
-	<h3>Create a Bill</h3>
+	<h3>Create a Bill-Product</h3>
 	<br>
-	<form method="post" action="/bill/create/" class="form-group">
-	
+	<form method="post" action="/billproduct/create/" class="form-group">
 		{% csrf_token %}
 		<div class="input-group mb-3">
 	  		<div class="input-group-prepend">
 	  		<button name="save" type="submit" class="btn btn-success">Create</button>
 	  		</div>
-			
 	  		<p>ID: {{form.id}}</p>
-			<p>CLIENT ID: {{form.client_id}}</p>
-			<p>COMPANY NAME: {{form.company_name}}</p>
-			<p>NIT: {{form.nit}}</p>
-            <p>CODE: {{form.code}}</p>
-     
+            <p>BILL ID: {{form.bill_id}}</p>
+            <p>PRODUCT ID: {{form.product_id}}</p>
 		
 		</div>
 	</form>

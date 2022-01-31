@@ -20,6 +20,12 @@ class CreateNewBill(forms.Form):
     company_name = forms.CharField(label="company name", max_length= 200)
     nit = forms.IntegerField(label="nit")
     code = forms.IntegerField(label="code")
+
+class CreateNewBill_Product(forms.Form):
+    
+    id = forms.IntegerField(label="id")
+    bill_id = forms.IntegerField(label="id")
+    product_id = forms.IntegerField(label="id")
     
     
 
