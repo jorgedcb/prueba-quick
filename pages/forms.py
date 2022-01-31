@@ -1,4 +1,5 @@
 from cProfile import label
+import code
 import imp
 from os import name
 from unittest.util import _MAX_LENGTH
@@ -11,6 +12,15 @@ class CreateNewClient(forms.Form):
     first_name = forms.CharField(label="first_name", max_length= 200)
     last_name = forms.CharField(label="last_name", max_length= 200)
     email = forms.EmailField(label="email", max_length= 200)
+
+class CreateNewBill(forms.Form):
+    
+    id = forms.IntegerField(label="id")
+    client_id = forms.IntegerField(label="client_id")
+    company_name = forms.CharField(label="company name", max_length= 200)
+    nit = forms.IntegerField(label="nit")
+    code = forms.IntegerField(label="code")
+    
     
 
 class CreateNewProduct(forms.Form):

@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Create New Bill
+{% endblock %}
+ 
+{% block content %}
+	<h3>Create a Bill</h3>
+	<br>
+	<form method="post" action="/bill/create/" class="form-group">
+		{% csrf_token %}
+		<div class="input-group mb-3">
+	  		<div class="input-group-prepend">
+	  		<button name="save" type="submit" class="btn btn-success">Create</button>
+	  		</div>
+	  		<p>ID: {{form.id}}</p>
+			<p>CLIENT ID: {{form.client_id}}</p>
+			<p>COMPANY NAME: {{form.nit}}</p>
+			<p>NIT: {{form.nit}}</p>
+            <p>CODE: {{form.code}}</p>
+     
+		
+		</div>
+	</form>
+{% endblock %}

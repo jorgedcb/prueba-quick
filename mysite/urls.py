@@ -30,10 +30,16 @@ urlpatterns = [
     path('client/all', views.all_clients_view, name='all client'),
     path('client/create/', views.create_client_view, name='create client'),
 
+    #bills
+    path('bill/<int:id>', views.bills_view, name='bill'), 
+    path('bill/all', views.all_bills_view, name='all bill'),
+    path('bill/create/', views.create_bill_view, name='create bill'),
 
     #products
     path('product/<int:id>', views.product_view, name='product'), 
     path('product/all', views.all_products_view, name='all products'),
     path('product/create/', views.create_product_view, name='create product'),
+
+
 
 ]

@@ -1,0 +1,16 @@
+{% extends "main/base.html" %}
+{% block title %}Bills view{% endblock %}
+
+{% block content %}
+	<ul>
+		{% for bill in bills %}
+            <li>ID: {{bill.id}}</li>
+            <li>CLIENT ID: {{bill.client_id}}</li>
+            <li>COMPANY NAME: {{bill.nit}}</li>
+            <li>NIT: {{bill.nit}}</li>
+            <li>CODE: {{bill.code}}</li>
+            <br>
+
+		{% endfor %}
+	</ul>
+{% endblock %}

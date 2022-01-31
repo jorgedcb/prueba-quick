@@ -57,7 +57,6 @@ class Bills_Product(models.Model):
         b = Bill.objects.get(id = self.bill_id)
         return p,b
     def __str__(self):
-        print(self.product_id)
         return "prueba"
 
 
